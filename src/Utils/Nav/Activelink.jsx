@@ -6,8 +6,8 @@ const Activelink = ({ to, children }) => {
       to={to}
       className={({ isActive }) =>
         isActive
-          ? "w-[170px]  transform duration-500  flex items-center font-semibold h-[60px] gradientBg rounded-2xl text-black font-VarelaRound"
-          : "w-[170px] flex items-center transform duration-500 font-semibold h-[60px] bg-[#161616] rounded-2xl text-white font-VarelaRound"
+          ? "w-full transform duration-500  flex items-center font-semibold h-[60px] gradientBg rounded-2xl text-black font-VarelaRound"
+          : "w-full flex items-center transform duration-500 font-semibold h-[60px] bg-[#161616] rounded-2xl text-white font-VarelaRound"
       }
     >
       {children}

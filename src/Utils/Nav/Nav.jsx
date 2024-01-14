@@ -46,7 +46,10 @@ const Nav = () => {
           <span className="text-primary font-KaushanScript">Superior</span>
           &nbsp;Extended
         </h1>
-        <button onClick={() => SetShowNav(!showNav)} className="text-secondary">
+        <button
+          onClick={() => SetShowNav(!showNav)}
+          className="text-secondary lg:hidden"
+        >
           <SiChartdotjs />
         </button>
         <div className=" hidden lg:flex items-center   justify-between text-[20px] gap-x-5 xl:gap-x-[50px]">
@@ -57,7 +60,7 @@ const Nav = () => {
               </ActiveLink2>
             </>
           ))}
-          <button className="text-primary border flex rounded-md items-center gap-x-2 transform duration-500 p-3 border-primary hover:gradientBg hover:text-white">
+          <button className="text-primary border flex rounded-md items-center  gap-x-2 transform duration-500 p-3 border-primary hover:gradientBg hover:text-white">
             <LuDownloadCloud className=" " />
             <span className="">Download</span>
           </button>
@@ -67,58 +70,62 @@ const Nav = () => {
         className={`${
           showNav
             ? "scale-100 top-0 absolute transform duration-500"
-            : "scale-0 absolute transform duration-500"
-        } bg-black lg:hidden  w-full z-10  min-h-screen`}
+            : "scale-0 relative transform duration-500"
+        } bg-black lg:hidden flex flex-col justify-between w-full z-10  min-h-screen`}
       >
         <img className="absolute opacity-60 top-0 -z-10" src={img2} alt="" />
-        <div className="flex z-10 font-KaushanScript justify-center text-4xl font-bold  mt-14">
-          <h1 className="bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
-            {time}{" "}
-            <span className="uppercase text-sm">{moment().format("a ")}</span>{" "}
-          </h1>
-        </div>
-        <div className=" w-[92%] mx-auto grid grid-cols-2 gap-y-2  gap-x-2 mt-8 ">
-          {navlinks.map((x) => (
-            <>
-              <Activelink to={x.path} className="">
-                {" "}
-                {x.element === "Home" && (
-                  <TbSmartHome className=" font-semibold ms-3 text-xl" />
-                )}
-                {x.element === "About" && (
-                  <TiInfoLargeOutline className=" font-semibold ms-3 text-xl" />
-                )}
-                {x.element === "Changelog" && (
-                  <IoLogoBuffer className=" font-semibold ms-3 text-xl" />
-                )}
-                {x.element === "ScreenShot" && (
-                  <TbScreenshot className=" font-semibold ms-3 text-xl" />
-                )}
-                {x.element === "Team" && (
-                  <PiMicrosoftTeamsLogoBold className=" font-semibold ms-3 text-xl" />
-                )}
-                <h1 className=" font-semibold ms-3  w-[100px]">{x.element}</h1>
-                <IoIosArrowBack className="rotate-180 text-xl me-2" />
-              </Activelink>
-            </>
-          ))}
-        </div>
-        <div className="flex gap-x-2 items-center justify-center">
-          {" "}
-          <div className="w-[75%] rounded-xl my-3 ms-3 h-[40px] gradientBg">
-            <input
-              type="text"
-              placeholder="searh device"
-              className="h-full px-3 p-2 text-black focus:outline-none w-full bg-transparent"
-            />
+        <div>
+          <div className="flex z-10 font-KaushanScript justify-center text-4xl font-bold  mt-14">
+            <h1 className="bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
+              {time}{" "}
+              <span className="uppercase text-sm">{moment().format("a ")}</span>{" "}
+            </h1>
           </div>
-          <div className="w-[15%] flex items-center justify-center rounded-xl my-3  h-[40px] text-black gradientBg bg-opacity-35">
-            <LuSunMedium className="text-3xl" />
+          <div className=" w-[92%] mx-auto grid grid-cols-2 gap-y-2  gap-x-2 mt-10 ">
+            {navlinks.map((x) => (
+              <>
+                <Activelink to={x.path} className="">
+                  {" "}
+                  {x.element === "Home" && (
+                    <TbSmartHome className=" font-semibold ms-3 text-xl" />
+                  )}
+                  {x.element === "About" && (
+                    <TiInfoLargeOutline className=" font-semibold ms-3 text-xl" />
+                  )}
+                  {x.element === "Changelog" && (
+                    <IoLogoBuffer className=" font-semibold ms-3 text-xl" />
+                  )}
+                  {x.element === "ScreenShot" && (
+                    <TbScreenshot className=" font-semibold ms-3 text-xl" />
+                  )}
+                  {x.element === "Team" && (
+                    <PiMicrosoftTeamsLogoBold className=" font-semibold ms-3 text-xl" />
+                  )}
+                  <h1 className=" font-semibold ms-3  w-[100px]">
+                    {x.element}
+                  </h1>
+                  <IoIosArrowBack className="rotate-180 text-xl me-2" />
+                </Activelink>
+              </>
+            ))}
+          </div>
+          <div className="flex gap-x-2 items-center justify-center">
+            {" "}
+            <div className="w-[77%] rounded-3xl my-3 ms-3 h-[50px] bg-gradient-to-r bg-opacity-30 from-primary to-secondary">
+              <input
+                type="text"
+                placeholder="  search device"
+                className="h-full px-3 p-2 text-black focus:outline-none w-full bg-transparent"
+              />
+            </div>
+            <div className="w-[50px] flex items-center justify-center rounded-full my-3  h-[50px] text-black gradientBg bg-opacity-35">
+              <LuSunMedium className="text-3xl " />
+            </div>
           </div>
         </div>
         <button
           onClick={() => SetShowNav(!showNav)}
-          className="absolute bottom-10 bg-opacity-50 btn text-black bg-gradient-to-r rounded-2xl from-primary to-secondary left-[165px]"
+          className="w-[50px] mx-auto mb-5 bg-opacity-50 btn text-black bg-gradient-to-r rounded-2xl from-primary to-secondary left-[165px]"
         >
           <RxCross1 className="text-xl" />
         </button>
